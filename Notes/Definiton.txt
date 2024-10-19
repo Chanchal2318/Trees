@@ -1,0 +1,33 @@
+++++++++++++++++++++++++++++ Notes ++++++++++++++++++++++++++++
+
+Root:- 
+In a tree data structure, the root is the topmost node of the tree, which acts as the starting point for all the elements (nodes) in the tree. It is the node that has no parent, and all other nodes in the tree are either its children or descendants of its children.
+
+children:- 
+the children of a node are the immediate nodes that are directly connected to that node via edges, and are one level below it in the hierarchy.
+1. Immediate Descendants
+2. Multiple Children
+3. Parent-Child Relationship
+
+Ancestors :-
+The ancestors of a node are all the nodes that are on the path from the root node to that particular node, excluding the node itself.
+1. Direct and Indirect Parents
+2. No Ancestors for Root
+
+LeafNode:- 
+The node that has no children.
+
+Types of Binary Tree:-
+
+1. Full Binary Tree :- Every node has either 0 or 2 children.
+
+2. Complete Binary Tree :- 
+   a. All levels are completely filled except the last level.
+   b. The last level has all nodes in left as possible.
+
+3. Balanced Binary Tree :- Height of tree at max is log(n)
+   for ex:- Nodes = 8 ; log2(n) = 3 . Therefore, max height of tree must be 3.
+
+4. Perfect Binary Tree :- All leaf nodes are at the same level.
+
+5. Degenerate Tree :- When every node has a single child. It is look like a skewed tree or in a LL form.
