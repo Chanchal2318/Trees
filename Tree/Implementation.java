@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Implementation{
    public static class Node{
     int data;
@@ -35,6 +37,35 @@ public class Implementation{
         postorder(root.right);
         System.out.print(root.data+"-->");
     }
+    public static void levelorder(Node root){
+        if(root == null){
+            return;
+        }
+        Queue <Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+        while(! q.isEmpty()){
+            Node currNode = q.remove();
+            if(currNode == null){
+                System.out.println();
+                if(q.isEmpty()){
+                    break;
+                }
+                else{
+                    q.add(null);
+                }
+            }
+            else{
+                System.out.println(currNode.data + "-->");
+                if(currNode.left != null){
+                  q.add(currNode.left);
+                }
+                if(currNode.right != null){
+                    q.add(currNode.right);
+                }
+            }
+        }
+    }
 
     public static void main(String[] args){
         Node root = new Node(1);
@@ -50,6 +81,8 @@ public class Implementation{
         inorder(root);
         System.out.println();
         postorder(root);
+        System.out.println();
+        levelorder(root);
         System.out.println();
     }
 }
