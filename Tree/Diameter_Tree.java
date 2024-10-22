@@ -1,4 +1,4 @@
-// Brute Force Approach - O(n)
+// Brute Force Approach - O(n*n)
 import java.util.*;
 public class Diameter_Tree{
     public static class Node{
