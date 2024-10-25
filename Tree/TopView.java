@@ -1,15 +1,33 @@
 import java.util.*;
-public class Node{
-    int data;
-    Node left;
-    Node right;
-    public Node(int data){
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-}
 public class TopView{
+    public static class Pair<U, V> {
+        public final U first;
+        public final V second;
+    
+        public Pair(U first, V second) {
+            this.first = first;
+            this.second = second;
+        }
+    
+        public U getKey() {
+            return first;
+        }
+    
+        public V getValue() {
+            return second;
+        }
+    }
+    
+    public static class Node{
+        int data;
+        Node left;
+        Node right;
+        public Node(int data){
+            this.data = data;
+            this.left = null;
+            this.right = null;
+        }
+    }
     public static List<Integer> topView(Node root){
         List<Integer> ans = new ArrayList<>();
         if(root == null){
@@ -22,8 +40,8 @@ public class TopView{
             Pair<Node,Integer> pair = q.poll();
             Node node = pair.getKey();
             int line = pair.getValue();
-            if (!mpp.containsKey(line)) {
-                mpp.put(line, node.data);
+            if (!map.containsKey(line)) {
+                map.put(line, node.data);
             }
             if(node.left != null){
                 q.add(new Pair<>(node.left,line-1));
@@ -32,8 +50,8 @@ public class TopView{
                 q.add(new Pair<>(node.right,line+1));
             }
         }
-        for(int val : mpp.values()){
-            ans.add(value);
+        for(int val : map.values()){
+            ans.add(val);
         }
         return ans;
     }

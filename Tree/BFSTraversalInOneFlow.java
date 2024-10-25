@@ -1,6 +1,28 @@
 import java.util.*;
 public class BFSTraversalInOneFlow {
-    public class Node{
+    public static class Pair<U, V> {
+        private U key;
+        private V value;
+    
+        public Pair(U key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+    
+        public U getKey() {
+            return key;
+        }
+    
+        public V getValue() {
+            return value;
+        }
+    
+        public void setValue(V value) {
+            this.value = value;
+        }
+    }
+    
+    public static class Node{
         int data;
         Node left;
         Node right;
@@ -66,10 +88,20 @@ public class BFSTraversalInOneFlow {
         result.add(preOrder);
         result.add(inOrder);
         result.add(postOrder);
-
+    
         return result;
     }
     public static void main(String[] args) {
-        
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        System.out.println(preInPostTraversal(root));
     }
 }
+
+
