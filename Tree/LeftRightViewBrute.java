@@ -1,5 +1,5 @@
 import java.util.*;
-public class RightViewBrute {
+public class LeftRightViewBrute {
     public static class Node{
         int data;
         Node left;
