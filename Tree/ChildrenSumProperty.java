@@ -10,9 +10,9 @@ public class ChildrenSumProperty {
             this.right = null;
         }
     }
-    public static void changeTree(Node root){
+    public static boolean changeTree(Node root){
         if(root == null){
-            return;
+            return ;
         }
         int child = 0;
         if(root.left != null){
