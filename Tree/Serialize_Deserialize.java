@@ -20,7 +20,7 @@ public class Serialize_Deserialize {
         while(!q.isEmpty()){
             Node currNode = q.poll();
             if(currNode == null){
-                sb.append("# ,");
+                sb.append("#,");
             }
             else{
                 sb.append(currNode.data).append(",");
@@ -30,38 +30,32 @@ public class Serialize_Deserialize {
         }
         return sb.toString();
     }
-    public static Node deserialize(String data){
-        if(data.isEmpty()){
+    public static Node deserialize(String data) {
+        if (data.isEmpty()) {
             return null;
         }
-        StringBuilder s = new StringBuilder(data);
-        int commaIndex = s.indexOf(",");
-        String str = s.substring(0,commaIndex);
-        s.delete(0, commaIndex+1);
-        Node root = new Node(Integer.parseInt(str));
+        String[] values = data.split(",");
+        Node root = new Node(Integer.parseInt(values[0]));
         Queue<Node> q = new LinkedList<>();
         q.offer(root);
-        while(!q.isEmpty()){
-            Node node =  q.poll();
-            commaIndex = s.indexOf(",");
-            str = s.substring(0,commaIndex);
-            s.delete(0,commaIndex+1);
-            if(!str.equals("#")){
-                Node leftNode = new Node(Integer.parseInt(str));
+        int i = 1;
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            if (!values[i].equals("#")) {
+                Node leftNode = new Node(Integer.parseInt(values[i]));
                 node.left = leftNode;
                 q.offer(leftNode);
             }
-            commaIndex = s.indexOf(",");
-            str = s.substring(0,commaIndex);
-            s.delete(0,commaIndex+1);
-            if(!str.equals('#')){
-                Node rightNode = new Node(Integer.parseInt(str));
+            i++;
+            if (!values[i].equals("#")) {
+                Node rightNode = new Node(Integer.parseInt(values[i]));
                 node.right = rightNode;
                 q.offer(rightNode);
             }
+            i++;
         }
         return root;
-    }
+    }    
     public static void inorder(Node root){
         if(root == null){
            return;
