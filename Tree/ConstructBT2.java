@@ -48,13 +48,13 @@ public class ConstructBT2 {
         return root;
     }
    // Function to print the tree in inorder to verify correctness
-   public static void printInorder(Node node) {
+   public static void printInorder(Node root) {
         if (root == null) {
             return;
         }
         printInorder(root.left);
-        System.out.print(root.data+ " ");
-        printInorder(node.right);
+        System.out.print(root.data+ " ");  
+        printInorder(root.right);
     }
     
     public static void main(String[] args) {
