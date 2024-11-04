@@ -58,7 +58,7 @@ public class BottomView {
         root.left.left.right = new Node(5);
         root.left.left.right.right = new Node(6);
         root.right = new Node(3);
-        root.right.right = new Node(10);
+        root.right.right = new Node(11);
         root.right.left = new Node(9);
         System.out.println(bottomView(root));
     }
